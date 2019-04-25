@@ -2,8 +2,9 @@ workflow "Fission CD" {
   on = "push"
   resolves = [
     "FissionCD",
-#    "Push image to Registry",
   ]
+
+  #    "Push image to Registry",
 }
 
 #action "Docker Registry Login" {
@@ -25,6 +26,6 @@ workflow "Fission CD" {
 
 action "FissionCD" {
   uses = "docker://vishalbiyani/fission-action:7"
-#  needs = ["Push image to Registry"]
+  #  needs = ["Push image to Registry"]
   secrets = ["CERTIFICATE_AUTHORITY", "SERVER_ADDRESS", "USER_TOKEN"]
 }
